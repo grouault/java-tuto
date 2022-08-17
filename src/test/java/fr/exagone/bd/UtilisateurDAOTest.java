@@ -1,7 +1,7 @@
-package exagone.bd;
+package fr.exagone.bd;
 
-import fr.exagone.bd.dao.CompteDAO;
-import fr.exagone.bd.entity.CompteEntity;
+import fr.exagone.bd.dao.UtilisateurDAO;
+import fr.exagone.bd.entity.UtilisateurEntity;
 import fr.exagone.bd.utils.ConnectionUtil;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,9 +12,9 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class CompteDAOTest {
+public class UtilisateurDAOTest {
 
-    private static final Log LOG = LogFactoryImpl.getLog(CompteDAOTest.class);
+    private static final Log LOG = LogFactoryImpl.getLog(UtilisateurDAOTest.class);
 
     private static Connection connexion;
 
@@ -24,7 +24,7 @@ public class CompteDAOTest {
     }
 
     @AfterClass
-    public static void tearDown() throws SQLException{
+    public static void tearDown() throws SQLException {
         if (connexion != null) {
             ConnectionUtil.getInstance().fermerConnexion();
         }
@@ -32,10 +32,10 @@ public class CompteDAOTest {
 
     @Test
     public void a1_select() {
-        CompteDAO compteDAO = new CompteDAO();
-        CompteEntity compte = compteDAO.find(12, connexion);
-        LOG.trace("Compte = " + compte.toString());
-        Assert.assertNotNull(compte);
+        UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
+        UtilisateurEntity utilisateur =  utilisateurDAO.findUtilisateur(1, connexion);
+        LOG.trace("utilisateur " + utilisateur);
+        Assert.assertNotNull(utilisateur);
     }
 
 }
