@@ -1,5 +1,7 @@
 package aspects;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -13,6 +15,11 @@ import org.jetbrains.annotations.NotNull;
 public class LoggingAspect {
 
     Logger logger = Logger.getLogger(LoggingAspect.class.getName());
+
+    public LoggingAspect()throws IOException{
+        logger.addHandler(new FileHandler("log.xml"));
+        logger.setUseParentHandlers(false);
+    }
 
     long t1, t2;
 
