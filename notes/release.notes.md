@@ -5,6 +5,15 @@ L'idée est de tester l'AOP dans une application Java.
 Le plugin AspectJWeaver fonctionne avec IntelliJ ultimate
 Il faut passer par maven pour l'utiliser avec la version classique
 
+### Dans le code:
+- on trouve 3 Aspects:
+- LoggingAspect : pour tester les logs
+  - génère les logs dans le fichier log.xml
+- PatchRetraitAspect:
+  - permet de vérifier que le solde est positif
+- SecurityAspect
+  - l'application nécessite une authenfication
+  
 ### Mode opératoire.
 
 #### Compilation
